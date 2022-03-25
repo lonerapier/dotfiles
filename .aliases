@@ -1,0 +1,11 @@
+alias ls="exa"
+alias ll="exa --long --header --git --icons"
+alias tree="ll --tree --level=4 -a -I=.git --git-ignore"
+alias vim="nvim"
+alias zshrc="vim ~/.zshrc"
+alias zshrcs="source ~/.zshrc"
+alias vimrc="vim ~/.config/nvim/init.vim"
+alias vimrcs="source ~/.config/nvim/init.vim"
+alias tmuxrc="vim ~/.tmux.conf"
+alias tmuxrcs="tmux source-file ~/.tmux.conf"
+
