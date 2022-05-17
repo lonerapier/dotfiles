@@ -8,4 +8,5 @@ alias vimrc="vim ~/.config/nvim/init.vim"
 alias vimrcs="source ~/.config/nvim/init.vim"
 alias tmuxrc="vim ~/.tmux.conf"
 alias tmuxrcs="tmux source-file ~/.tmux.conf"
-
+alias gm="brew upgrade && curl -L https://foundry.paradigm.xyz | bash && foundryup"
+alias ft="forge test -vvv"
