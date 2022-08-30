@@ -116,14 +116,6 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Aliases
-alias vi="nvim"
-alias cp='cp -i'
-alias mv='mv -i'
-
-alias d="cd ~/Documents"
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
 
 function time-zsh() {
   for i in $(seq 1 10); do /usr/bin/time zsh -i -c exit; done
@@ -200,3 +192,7 @@ fi
 
 # starship
 eval "$(starship init zsh)"
+
+# Infura & Alchemy
+export INFURA_MAINNET="https://mainnet.infura.io/v3/33041fe1478a423f85c4e319924e63e3"
+export ALCHEMY_MAINNET="https://eth-mainnet.g.alchemy.com/v2/IE0LF2KrfBXV2CDv69NPcddAN4fsM1Em"

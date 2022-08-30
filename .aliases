@@ -1,12 +1,31 @@
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias d="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+
 alias ls="exa"
 alias ll="exa --long --header --git --icons"
 alias tree="ll --tree --level=4 -a -I=.git --git-ignore"
+
 alias vim="nvim"
 alias zshrc="vim ~/.zshrc"
 alias zshrcs="source ~/.zshrc"
+
 alias vimrc="vim ~/.config/nvim/init.vim"
 alias vimrcs="source ~/.config/nvim/init.vim"
+
 alias tmuxrc="vim ~/.tmux.conf"
 alias tmuxrcs="tmux source-file ~/.tmux.conf"
+
 alias gm="brew upgrade && curl -L https://foundry.paradigm.xyz | bash && foundryup"
 alias ft="forge test -vvv"
+
+alias lg="lazygit"
+alias at="alacritty-themes"
+
+alias lforge="~/Projects/foundry/target/local/forge"
+alias lcast="~/Projects/foundry/target/local/cast"
+alias lanvil="~/Projects/foundry/target/local/anvil"
+

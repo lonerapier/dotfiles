@@ -29,6 +29,10 @@ nnoremap <Leader>j :wincmd j<CR>
 nnoremap <Leader>k :wincmd k<CR>
 nnoremap <Leader>l :wincmd l<CR>
 
+" Tab navigation like Firefox.
+nnoremap <silent> <C-S-tab> :bprevious<CR>
+nnoremap <silent> <C-tab>   :bnext<CR>
+
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = []

@@ -1,6 +1,9 @@
+set encoding=utf-8
+
 " Change mapleader
-let mapleader = ","
+let mapleader=","
 set background=dark
+
 " Colors {{{
 if (has("termguicolors"))
   set termguicolors " enable true colors support
@@ -35,8 +38,6 @@ set clipboard+=unnamedplus
 set ttyfast
 " Add the g flag to search/replace by default
 set gdefault
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
 
 " Don’t add empty newlines at the end of files
 set binary
@@ -90,7 +91,13 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 
+" Set completeopt to have a better completion experience
+" :help completeopt
+" menuone: popup even when there's only one match
+" noinsert: Do not insert text until a selection is made
+" noselect: Do not select, force user to select one from the menu
 set completeopt=noinsert,menu,menuone,noselect
+
 set cursorline
 set hidden
 " Enable line numbers
@@ -109,7 +116,7 @@ set smarttab
 
 set nu
 set nohlsearch
-set nowrap
+set wrap
 set formatoptions-=t
 set noshowmode
 
@@ -133,10 +140,6 @@ set t_Co=256
 
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
-
-" Tab navigation like Firefox.
-nnoremap <C-S-tab> :bprevious<CR>
-nnoremap <C-tab>   :bnext<CR>
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
@@ -188,7 +191,6 @@ if has("nvim")
 
 	Plug 'ekalinin/Dockerfile.vim'
 	Plug 'tpope/vim-commentary'
-	Plug 'evanleck/vim-svelte', { 'for': ['svelte'], 'branch': 'main' }
 	Plug 'pangloss/vim-javascript', { 'for': ['javascript'] }
 	Plug 'bronson/vim-visual-star-search'
 	Plug 'tikhomirov/vim-glsl'
@@ -201,8 +203,6 @@ if has("nvim")
 	Plug 'rust-lang/rust.vim'
 	Plug 'neoclide/coc.nvim', { 'branch': 'release'}
 	Plug 'tomlion/vim-solidity'
-	Plug 'neovim/nvim-lspconfig'
-	Plug 'nvim-lua/plenary.nvim'
 	Plug 'lewis6991/gitsigns.nvim'
 	Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
 	Plug 'jparise/vim-graphql'
@@ -223,10 +223,21 @@ if has("nvim")
 
 	" Completion
 	Plug 'hrsh7th/nvim-cmp'
+
+    " Other usefull completion sources
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-path'
+
+    " LSP completion source for nvim-cmp
 	Plug 'hrsh7th/cmp-nvim-lsp'
-	Plug 'L3MON4D3/LuaSnip'
+
+    " Snippet completion source for nvim-cmp
+    Plug 'hrsh7th/cmp-vsnip'
+
+    " Snippet engine
+    Plug 'hrsh7th/vim-vsnip'
+
+    Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
 	Plug 'David-Kunz/cmp-npm'
 
@@ -237,13 +248,65 @@ if has("nvim")
 	Plug 'onsails/lspkind-nvim'
 	Plug 'creativenull/diagnosticls-configs-nvim'
 
-	call plug#end()
+    " To enable more of the features of rust-analyzer, such as inlay hints and more!
+    Plug 'simrat39/rust-tools.nvim'
+
+    " Fuzzy finder
+    " Optional
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+
+    Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
+
+    call plug#end()
 endif
 
+"lua <<EOF
+"require('gitsigns').setup {
+"  signs = {
+"    changedelete = { text = '│' }
+"  }
+"}
+"EOF
+
+" Configure LSP through rust-tools.nvim plugin.
+" rust-tools will configure and enable certain LSP features for us.
+" See https://github.com/simrat39/rust-tools.nvim#configuration
 lua <<EOF
-require('gitsigns').setup {
-  signs = {
-    changedelete = { text = "│" }
-  }
+local nvim_lsp = require'lspconfig'
+
+local opts = {
+    tools = { -- rust-tools options
+        autoSetHints = true,
+        hover_with_actions = true,
+        inlay_hints = {
+            show_parameter_hints = false,
+            parameter_hints_prefix = "",
+            other_hints_prefix = "",
+        },
+    },
+
+    -- all the opts to send to nvim-lspconfig
+    -- these override the defaults set by rust-tools.nvim
+    -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
+    server = {
+        -- on_attach is a callback called when the language server attachs to the buffer
+        -- on_attach = on_attach,
+        settings = {
+            -- to enable rust-analyzer settings visit:
+            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+            ["rust-analyzer"] = {
+                -- enable clippy on save
+                checkOnSave = {
+                    command = "clippy"
+                },
+            }
+        }
+    },
 }
+
+require('rust-tools').setup(opts)
 EOF
+
+require("toggleterm").setup{}
