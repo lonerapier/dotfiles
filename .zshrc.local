@@ -89,9 +89,12 @@ plugins=(
   zsh-autosuggestions
   fast-syntax-highlighting
   vi-mode
+  vscode
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.zsh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -151,33 +154,29 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # java
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-# export OPENPASS="MmFhOTczNm"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 export PATH="/opt/homebrew/bin:$PATH"
 
 # nvm
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 # broot
-source /Users/sambhavdusad/.config/broot/launcher/bash/br
-
-# antibody
-source <(antibody init)
-antibody bundle < ~/.zsh_plugins.txt
+source /Users/tnluser/.config/broot/launcher/bash/br
 
 # foundry
 export PATH="$PATH:/Users/sambhavdusad/.foundry/bin"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # golang
 export GOPATH=$HOME/go
@@ -193,6 +192,10 @@ fi
 # starship
 eval "$(starship init zsh)"
 
+# pyenv
+eval "$(pyenv init -)"
+
 # Infura & Alchemy
 export INFURA_MAINNET="https://mainnet.infura.io/v3/33041fe1478a423f85c4e319924e63e3"
 export ALCHEMY_MAINNET="https://eth-mainnet.g.alchemy.com/v2/IE0LF2KrfBXV2CDv69NPcddAN4fsM1Em"
+
