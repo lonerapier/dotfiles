@@ -4,4 +4,4 @@
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-export PATH="$PATH:/Users/tnluser/.foundry/bin"
+export PATH="$PATH:/Users/sambhav.dusad/.foundry/bin"
