@@ -57,11 +57,11 @@ return packer.startup(function(use)
 	use({ "lewis6991/impatient.nvim"})
 	use({ "lukas-reineke/indent-blankline.nvim"})
 	use({ "goolord/alpha-nvim"})
-	use("folke/which-key.nvim")
+	use({ "folke/which-key.nvim"})
 
 	-- Colorschemes
 	use({ "folke/tokyonight.nvim"})
-	use("lunarvim/darkplus.nvim")
+	use({ "lunarvim/darkplus.nvim"})
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp"}) -- The completion plugin
@@ -72,13 +72,16 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lua"})
 
 	-- snippets
-	-- use({ "L3MON4D3/LuaSnip"}) --snippet engine
+	use({ "L3MON4D3/LuaSnip"}) --snippet engine
 	use({ "rafamadriz/friendly-snippets"}) -- a bunch of snippets to use
 
 	-- LSP
 	use({ "neovim/nvim-lspconfig"}) -- enable LSP
 	use({ "williamboman/nvim-lsp-installer"}) -- simple to use language server installer
+  use({ "williamboman/mason.nvim"})
+  use({"williamboman/mason-lspconfig.nvim"})
 	use({ "jose-elias-alvarez/null-ls.nvim"}) -- for formatters and linters
+  use({ "simrat39/rust-tools.nvim"}) -- rust tools lsp
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim"})
@@ -86,14 +89,15 @@ return packer.startup(function(use)
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+        run = ":TSUpdate",
 	})
-
+ 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim"})
-
-    -- Lazygit
-    -- use({ "kdheepak/lazygit.nvim"}) -- lazygit plugin
+    
+  -- Debug Adapter Protocol
+  use({ "ravenxrz/DAPInstall.nvim"})
+  use({ "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
