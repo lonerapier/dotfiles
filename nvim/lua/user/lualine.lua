@@ -48,6 +48,11 @@ local location = {
 	padding = 0,
 }
 
+local filename = {
+  "filename",
+  path = 3,
+}
+
 -- cool function for progress
 local progress = function()
 	local current_line = vim.fn.line(".")
@@ -76,7 +81,7 @@ lualine.setup({
 		lualine_b = { mode },
 		lualine_c = {},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { diff, spaces, "encoding", filetype },
+		lualine_x = { filename, diff, spaces, "encoding", filetype },
 		lualine_y = { location },
 		lualine_z = { progress },
 	},
