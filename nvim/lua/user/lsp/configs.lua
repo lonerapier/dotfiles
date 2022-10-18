@@ -25,7 +25,6 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
       local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/'
       local codelldb_path = extension_path .. 'adapter/codelldb'
       local liblldb_path = extension_path .. 'lldb/lib/liblldb.dylib'
-      print(liblldb_path)
       require("rust-tools").setup {
         server = {
           on_attach = require("user.lsp.handlers").on_attach,
@@ -38,17 +37,26 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
                 },
               },
               lens = {
-                enable = false,
+                enable = true,
               },
               checkOnSave = {
-                commands = "clippy"
-              }
-            }
+                command = "clippy",
+              },
+              inlayHints = {
+                closureReturnTypeHints = {
+                  enable = true,
+                },
+                lifetimeElisionHints = {
+                  enable = true,
+                },
+                maxLength = 100,
+              },
+            },
           },
         },
         dap = {
           adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
-        }
+        },
       }
       goto continue
     end
