@@ -14,4 +14,28 @@ configs.setup({
 		enable = true,
 	},
 	indent = { enable = true, disable = { "python", "css" } },
+  rainbow = {
+    enable = true,
+    extended_mode = false,
+    colors = {
+      -- "#68a0b0",
+      -- "#946EaD",
+      -- "#c7aA6D",
+      "Gold",
+      "Orchid",
+      "DodgerBlue",
+      -- "Cornsilk",
+      -- "Salmon",
+      -- "LawnGreen",
+    },
+    disable = { "html" },
+  },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
+  autotag = {
+    enable = true,
+    disable = { "xml", "markdown" },
+  },
 })
