@@ -44,10 +44,10 @@ return packer.startup(function(use)
 
 	use({ "wbthomason/packer.nvim"}) -- Have packer manage itself
 	use({ "nvim-lua/plenary.nvim"}) -- Useful lua functions used by lots of plugins
-	use({ "windwp/nvim-autopairs"}) -- Autopairs, integrates with both cmp and treesitter
+	use({ "nvim-lua/popup.nvim"}) -- lua utils
+	use({ "christianchiarulli/lua-dev.nvim"})
 	use({ "numToStr/Comment.nvim"})
 	use({ "JoosepAlviste/nvim-ts-context-commentstring"})
-	use({ "kyazdani42/nvim-web-devicons"})
 	use({ "kyazdani42/nvim-tree.lua"})
 	use({ "akinsho/bufferline.nvim"})
 	use({ "moll/vim-bbye"})
@@ -77,11 +77,22 @@ return packer.startup(function(use)
 
 	-- LSP
 	use({ "neovim/nvim-lspconfig"}) -- enable LSP
-	use({ "williamboman/nvim-lsp-installer"}) -- simple to use language server installer
   use({ "williamboman/mason.nvim"})
-  use({"williamboman/mason-lspconfig.nvim"})
+  use({ "williamboman/mason-lspconfig.nvim"})
 	use({ "jose-elias-alvarez/null-ls.nvim"}) -- for formatters and linters
   use({ "simrat39/rust-tools.nvim"}) -- rust tools lsp
+  use({ "ray-x/lsp_signature.nvim"}) -- function signatures
+  use({ "SmiteshP/nvim-navic"}) -- code statusline
+  use({ "RRethy/vim-illuminate"}) -- highlight variables
+  use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim"}) -- lsp warnings virtual text
+  use({ "Saecki/crates.nvim"})
+
+  -- Code Outline
+  use({ "simrat39/symbols-outline.nvim"})
+
+  -- Utility
+  use "rcarriga/nvim-notify"
+  use "stevearc/dressing.nvim"
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim"})
@@ -91,17 +102,42 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
 	})
- 
+  use({ "p00f/nvim-ts-rainbow"}) -- brackets rainbow
+  use {
+    "abecodes/tabout.nvim",
+    wants = { "nvim-treesitter" }, -- or require if not used so far
+  }
+
 	-- Git
-	use({ "lewis6991/gitsigns.nvim"})
-    
+	use({ "lewis6991/gitsigns.nvim"}) -- git signs
+  use({ "f-person/git-blame.nvim"}) -- git blame line
+
   -- Debug Adapter Protocol
   use({ "ravenxrz/DAPInstall.nvim"})
   use({ "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} })
 
-  -- Code Outline
-  use({ "simrat39/symbols-outline.nvim"})
+  -- Icon
+  use({ "kyazdani42/nvim-web-devicons"}) -- dev icons
 
+  -- Editing Support
+  use({ "windwp/nvim-autopairs"}) -- auto brackets pairing
+  use({ "karb94/neoscroll.nvim"}) -- smooth scrolling
+  -- use({ "kylechui/nvim-surround"}) -- editing support, add/change/delete brackets around text
+  use({ "petertriho/nvim-scrollbar"}) -- Scroll bar
+  use({ "gpanders/editorconfig.nvim"}) -- editorconfig support
+  use({ "ggandor/leap.nvim"}) -- better move support
+  use({
+	"folke/noice.nvim",
+	event = "VimEnter",
+	requires = {
+    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    "MunifTanjim/nui.nvim",
+    -- OPTIONAL:
+    --   `nvim-notify` is only needed, if you want to use the notification view.
+    --   If not available, we use `mini` as the fallback
+    "rcarriga/nvim-notify",
+    }
+  })
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
