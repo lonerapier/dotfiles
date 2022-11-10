@@ -29,15 +29,15 @@ vim.cmd([[
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
 
-  augroup _whitespace
-    autocmd!
-    autocmd BufWritePre * :%s/\s\+$//e
-  augroup end
+  " augroup _whitespace
+  "   autocmd!
+  "   autocmd BufWritePre * :%s/\s\+$//e
+  " augroup end
 ]])
 
 -- Autoformat
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = { "*.ts", "*.rs", "*.go" },
+  pattern = { "*.rs" },
   callback = function()
     vim.lsp.buf.format({ async = true })
   end,
