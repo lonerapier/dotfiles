@@ -12,6 +12,15 @@ return {
         end,
       })
     end,
+	  inlay_hints = {
+		auto = false,
+		show_parameter_hints = false,
+		show_type_hints = false,
+		show_chain_hints = false,
+		--[[ parameter_hints_prefix = "<- ", ]]
+		--[[ type_hints_prefix = ": ", ]]
+		--[[ other_hints_prefix = " = ", ]]
+	},
   },
 	server = {
 	  on_attach = require("user.lsp.handlers").on_attach,
