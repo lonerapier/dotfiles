@@ -181,6 +181,7 @@ export PATH="$PATH:/Users/sambhav.dusad/.foundry/bin"
 # golang
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
+# export GOPROXY=https://proxy.golang.org/
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # rg
@@ -201,3 +202,5 @@ eval "$(pyenv init -)"
 export INFURA_MAINNET="https://mainnet.infura.io/v3/33041fe1478a423f85c4e319924e63e3"
 export ALCHEMY_MAINNET="https://eth-mainnet.g.alchemy.com/v2/IE0LF2KrfBXV2CDv69NPcddAN4fsM1Em"
 
+# clang
+export LD_LIBRARY_PATH="/Library/Developer/CommandLineTools/usr/lib/:$LD_LIBRARY_PATH"
