@@ -27,7 +27,9 @@ local servers = {
   "rust_analyzer",
   "taplo",
   "zk",
-  "lemminx"
+  "lemminx",
+  "clangd",
+  "gopls",
 }
 
 local settings = {
@@ -132,9 +134,36 @@ for _, server in pairs(servers) do
       return
     end
 
-	print("hellooo", rust_opts)
     rust_tools.setup(rust_opts)
     goto continue
+  end
+
+  if server == "clangd" then
+	-- update offset encoding to utf-16
+	local capabilities = require("user.lsp.handlers").capabilities
+	capabilities.offsetEncoding = {"utf-16"}
+	opts.capabilities = capabilities
+  end
+
+  if server == "gopls" then
+	local gopls_opts = require "user.lsp.settings.gopls"
+
+	local status_go_ok, ray_go_nvim = pcall(require, "go")
+	if not status_go_ok then
+		return
+	end
+
+	ray_go_nvim.setup({
+		goimport = "gopls",
+		gofmt = "gofumpt",
+		lsp_keymaps = false,
+		dap_debug = false,
+		dap_debug_gui = false,
+		lsp_inlay_hints = {
+			enable = false,
+		},
+	})
+	opts = vim.tbl_deep_extend("force", gopls_opts, opts)
   end
 
   lspconfig[server].setup(opts)

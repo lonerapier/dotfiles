@@ -10,12 +10,19 @@ end
 
 local dap_install_status_ok, dap_install = pcall(require, "dap-install")
 if not dap_install_status_ok then
-  print("nit okk")
   return
 end
 
+local dap_ok, dapgo = pcall(require, "dap-go")
+if not dap_ok then
+	return
+end
+dapgo.setup()
+
+
 dap_install.setup {}
 dap_install.config("python", {})
+dap_install.config("go", {})
 -- add other configs here
 
 dapui.setup {

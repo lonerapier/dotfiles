@@ -17,3 +17,5 @@ log/*.log
 rerun.txt
 tmp/**/*
 /tags
+
+*.bak

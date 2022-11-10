@@ -116,22 +116,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: FiraCode Nerd Font Mono
+    family: Hack Nerd Font Mono
     style: Regular
 
   # Bold font face
   bold:
-    family: FiraCode Nerd Font Mono
+    family: Hack Nerd Font Mono
     style: Bold
 
   # Italic font face
   italic:
-    family: FiraCode Nerd Font Mono
+    family: Hack Nerd Font Mono
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: FiraCode Nerd Font Mono
+    family: Hack Nerd Font Mono
     style: Bold Italic
 
   # Point size
@@ -163,32 +163,40 @@ draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
 colors:
-  name: Neon
-  author: ""
+  # Default colors
   primary:
-    background: "#171717"
-    foreground: "#f8f8f8"
+    background: '#011627'
+    foreground: '#acb4c2'
+
   cursor:
-    text: "#171717"
-    cursor: "#f8f8f8"
+    text: '#fafafa'
+    cursor: '#9ca1aa'
+
+  selection:
+    text: '#080808'
+    background: '#b2ceee'
+
+  # Normal colors
   normal:
-    black: "#171717"
-    red: "#d81765"
-    green: "#97d01a"
-    yellow: "#ffa800"
-    blue: "#16b1fb"
-    magenta: "#ff2491"
-    cyan: "#0fdcb6"
-    white: "#ebebeb"
+    black: '#1d3b53'
+    red: '#fc514e'
+    green: '#a1cd5e'
+    yellow: '#e3d18a'
+    blue: '#82aaff'
+    magenta: '#c792ea'
+    cyan: '#7fdbca'
+    white: '#a1aab8'
+
+  # Bright colors
   bright:
-    black: "#38252c"
-    red: "#ff0000"
-    green: "#76b639"
-    yellow: "#e1a126"
-    blue: "#289cd5"
-    magenta: "#ff2491"
-    cyan: "#0a9b81"
-    white: "#f8f8f8"
+    black: '#7c8f8f'
+    red: '#ff5874'
+    green: '#21c7a8'
+    yellow: '#ecc48d'
+    blue: '#82aaff'
+    magenta: '#ae81ff'
+    cyan: '#7fdbca'
+    white: '#d6deeb'
 # Specifying a `duration` of `0` will disable the visual bell.
 visual_bell:
   animation: EaseOutQuint
@@ -664,4 +672,4 @@ debug:
   #log_level: Warn
   # Print all received window events.
   #print_events: false
-theme: Neon
+theme: Nightfly

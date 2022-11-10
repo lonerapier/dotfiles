@@ -61,7 +61,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use({ "folke/tokyonight.nvim"})
-	use({ "lunarvim/darkplus.nvim"})
+	use({ 'embark-theme/vim', as = 'embark' })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp"}) -- The completion plugin
@@ -86,6 +86,7 @@ return packer.startup(function(use)
   use({ "RRethy/vim-illuminate"}) -- highlight variables
   use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim"}) -- lsp warnings virtual text
   use({ "Saecki/crates.nvim"})
+  use({ "lvimuser/lsp-inlayhints.nvim"})
 
   -- Code Outline
   use({ "simrat39/symbols-outline.nvim"})
@@ -115,6 +116,7 @@ return packer.startup(function(use)
   -- Debug Adapter Protocol
   use({ "ravenxrz/DAPInstall.nvim"})
   use({ "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} })
+  use({ "leoluz/nvim-dap-go"})
 
   -- Icon
   use({ "kyazdani42/nvim-web-devicons"}) -- dev icons
@@ -138,6 +140,20 @@ return packer.startup(function(use)
     "rcarriga/nvim-notify",
     }
   })
+  -- copilot
+	use {
+    "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require "user.copilot"
+      end, 100)
+    end,
+  }
+	use({ "zbirenbaum/copilot-cmp"})
+
+	use({ "ray-x/go.nvim"})
+	use({ "ray-x/guihua.lua"})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
