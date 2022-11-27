@@ -50,7 +50,7 @@ local location = {
 
 local filename = {
   "filename",
-  path = 3,
+  path = 1,
 }
 
 -- cool function for progress

@@ -181,8 +181,11 @@ export PATH="$PATH:/Users/sambhav.dusad/.foundry/bin"
 # golang
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
-# export GOPROXY=https://proxy.golang.org/
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+# export GOROOT=/usr/local/go
+export GOPROXY=https://proxy.golang.org/
+export GOPRIVATE="bitbucket.org/dreamplug-backend"
+export PATH="$GOPATH/bin:$PATH"
+# export PATH="$PATH:/usr/local/go/bin"
 
 # rg
 if type rg &> /dev/null; then
@@ -194,9 +197,9 @@ fi
 eval "$(starship init zsh)"
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # Infura & Alchemy
 export INFURA_MAINNET="https://mainnet.infura.io/v3/33041fe1478a423f85c4e319924e63e3"
