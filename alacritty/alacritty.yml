@@ -116,22 +116,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: FiraCode Nerd Font Mono
+    family: Hack Nerd Font Mono
     style: Regular
 
   # Bold font face
   bold:
-    family: FiraCode Nerd Font Mono
+    family: Hack Nerd Font Mono
     style: Bold
 
   # Italic font face
   italic:
-    family: FiraCode Nerd Font Mono
+    family: Hack Nerd Font Mono
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: FiraCode Nerd Font Mono
+    family: Hack Nerd Font Mono
     style: Bold Italic
 
   # Point size
@@ -165,38 +165,30 @@ draw_bold_text_with_bright_colors: false
 colors:
   # Default colors
   primary:
-    background: '#011627'
-    foreground: '#acb4c2'
-
-  cursor:
-    text: '#fafafa'
-    cursor: '#9ca1aa'
-
-  selection:
-    text: '#080808'
-    background: '#b2ceee'
+    background: '#282a36'
+    foreground: '#f8f8f2'
 
   # Normal colors
   normal:
-    black: '#1d3b53'
-    red: '#fc514e'
-    green: '#a1cd5e'
-    yellow: '#e3d18a'
-    blue: '#82aaff'
-    magenta: '#c792ea'
-    cyan: '#7fdbca'
-    white: '#a1aab8'
+    black: '#000000'
+    red: '#ff5555'
+    green: '#50fa7b'
+    yellow: '#f1fa8c'
+    blue: '#caa9fa'
+    magenta: '#ff79c6'
+    cyan: '#8be9fd'
+    white: '#bfbfbf'
 
   # Bright colors
   bright:
-    black: '#7c8f8f'
-    red: '#ff5874'
-    green: '#21c7a8'
-    yellow: '#ecc48d'
-    blue: '#82aaff'
-    magenta: '#ae81ff'
-    cyan: '#7fdbca'
-    white: '#d6deeb'
+    black: '#575b70'
+    red: '#ff6e67'
+    green: '#5af78e'
+    yellow: '#f4f99d'
+    blue: '#caa9fa'
+    magenta: '#ff92d0'
+    cyan: '#9aedfe'
+    white: '#e6e6e6'
 # Specifying a `duration` of `0` will disable the visual bell.
 visual_bell:
   animation: EaseOutQuint
@@ -672,4 +664,4 @@ debug:
   #log_level: Warn
   # Print all received window events.
   #print_events: false
-theme: Nightfly
+theme: Dracula

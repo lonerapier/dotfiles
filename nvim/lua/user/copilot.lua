@@ -16,7 +16,11 @@ copilot.setup({
 	panel = { -- no config options yet
 		enabled = true,
 	},
-	ft_disable = { "markdown" },
+	suggestion = {
+		enabled = true,
+		--[[ auto_trigger = true, ]]
+	},
+	ft_disable = { "markdown", "yaml", "json" },
 	-- plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
 	server_opts_overrides = {
 		-- trace = "verbose",

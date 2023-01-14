@@ -58,11 +58,21 @@ return packer.startup(function(use)
 	use({ "lukas-reineke/indent-blankline.nvim" })
 	use({ "goolord/alpha-nvim" })
 	use({ "folke/which-key.nvim" })
+	--[[ use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'} ]]
 
 	-- Colorschemes
 	use({ "folke/tokyonight.nvim" })
 	use({ "embark-theme/vim", as = "embark" })
-	use({ "jacoborus/tender.vim", as = "tender" })
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({ "nyoom-engineering/oxocarbon.nvim" })
+	use({ "rebelot/kanagawa.nvim" })
+	use({ "EdenEast/nightfox.nvim" })
+	use({ "jacoborus/tender.vim" })
+	use({ "savq/melange" })
+	use({ "sainnhe/sonokai" })
+	use({ "sainnhe/everforest" })
+	use({ "rose-pine/neovim"})
+	use({ "ellisonleao/gruvbox.nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -118,6 +128,7 @@ return packer.startup(function(use)
 	use({ "ravenxrz/DAPInstall.nvim" })
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 	use({ "leoluz/nvim-dap-go" })
+	use({ "theHamsta/nvim-dap-virtual-text" })
 
 	-- Icon
 	use({ "kyazdani42/nvim-web-devicons" }) -- dev icons
@@ -126,6 +137,7 @@ return packer.startup(function(use)
 	use({ "windwp/nvim-autopairs" }) -- auto brackets pairing
 	use({ "karb94/neoscroll.nvim" }) -- smooth scrolling
 	use({ "petertriho/nvim-scrollbar" }) -- Scroll bar
+	use({ "kevinhwang91/nvim-hlslens" })
 	use({ "gpanders/editorconfig.nvim" }) -- editorconfig support
 	use({ "ggandor/leap.nvim" }) -- better move support
 	use({
@@ -140,6 +152,7 @@ return packer.startup(function(use)
 			"rcarriga/nvim-notify",
 		},
 	})
+
 	-- copilot
 	use({
 		"zbirenbaum/copilot.lua",
@@ -152,6 +165,7 @@ return packer.startup(function(use)
 	})
 	use({ "zbirenbaum/copilot-cmp" })
 
+	-- Golang
 	use({ "ray-x/go.nvim" })
 	use({ "ray-x/guihua.lua" })
 

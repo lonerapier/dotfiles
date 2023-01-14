@@ -157,11 +157,17 @@ for _, server in pairs(servers) do
 		goimport = "gopls",
 		gofmt = "gofumpt",
 		lsp_keymaps = false,
-		dap_debug = false,
-		dap_debug_gui = false,
+		dap_debug = true,
+		dap_debug_gui = true,
+		dap_debug_vt = true, -- set to true to enable dap virtual text
 		lsp_inlay_hints = {
 			enable = false,
 		},
+		textobjects = true, -- enable default text jobects through treesittter-text-objects
+		lsp_diag_virtual_text = { space = 0, prefix = "" },
+		lsp_diag_signs = true,
+		lsp_diag_update_in_insert = false,
+		dap_debug_keymap = false,
 	})
 	opts = vim.tbl_deep_extend("force", gopls_opts, opts)
   end

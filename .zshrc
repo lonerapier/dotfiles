@@ -3,5 +3,3 @@
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
-
-export PATH="$PATH:/Users/sambhav.dusad/.foundry/bin"

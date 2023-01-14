@@ -5,7 +5,7 @@ local options = {
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0,                        -- so that `` is visible in markdown files
   fileencoding = "utf-8",                  -- the encoding written to a file
-  hlsearch = false,                         -- highlight all matches on previous search pattern
+  hlsearch = true,                         -- highlight all matches on previous search pattern
   ignorecase = true,                       -- ignore case in search patterns
   mouse = "a",                             -- allow the mouse to be used in neovim
   pumheight = 10,                          -- pop up menu height
@@ -44,8 +44,9 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.cmd "set encoding=utf-8"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd "set list"
-vim.cmd "set listchars=tab:⟶.,extends:>,precedes:<,space:·"
+vim.cmd "set listchars=tab:▸-,extends:>,precedes:<,space:·"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
