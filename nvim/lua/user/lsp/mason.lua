@@ -93,7 +93,7 @@ for _, server in pairs(servers) do
         --   -- settings = opts.settings,
       },
     }
-    lspconfig.sumneko_lua.setup(luadev)
+    lspconfig.lua_ls.setup(luadev)
     goto continue
   end
 

@@ -15,14 +15,14 @@ import:
   # Any items in the `env` entry below will be added as
   # environment variables. Some entries may override variables
   # set by alacritty itself.
-  #env:
+# env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: alacritty
+  # TERM: tmux-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -76,6 +76,7 @@ window:
   #title: Alacritty
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: true
+  option_as_alt: OnlyLeft
 
 hide_cursor_when_typing: false
 
@@ -116,26 +117,27 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: Hack Nerd Font Mono
+    family: JetBrainsMono Nerd Font
     style: Regular
 
   # Bold font face
   bold:
-    family: Hack Nerd Font Mono
+    family: JetBrainsMono Nerd Font
     style: Bold
 
   # Italic font face
   italic:
-    family: Hack Nerd Font Mono
+    family: JetBrainsMono Nerd Font
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: Hack Nerd Font Mono
+    family: JetBrainsMono Nerd Font
     style: Bold Italic
 
   # Point size
   size: 11
+  AppleFontSmoothing: True
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.

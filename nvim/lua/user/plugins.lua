@@ -156,6 +156,7 @@ return packer.startup(function(use)
 	-- copilot
 	use({
 		"zbirenbaum/copilot.lua",
+		lazy = false,
 		event = { "VimEnter" },
 		config = function()
 			vim.defer_fn(function()

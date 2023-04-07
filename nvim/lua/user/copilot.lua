@@ -15,22 +15,36 @@ copilot.setup({
 	},
 	panel = { -- no config options yet
 		enabled = true,
+		auto_refresh = true,
+		keymap = {
+			jump_prev = "[[",
+			jump_next = "]]",
+			accept = "<CR>",
+			refresh = "gr",
+			open = "<M-CR>",
+		},
 	},
 	suggestion = {
 		enabled = true,
-		--[[ auto_trigger = true, ]]
-	},
-	ft_disable = { "markdown", "yaml", "json" },
-	-- plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
-	server_opts_overrides = {
-		-- trace = "verbose",
-		settings = {
-			advanced = {
-				-- listCount = 10, -- #completions for panel
-				inlineSuggestCount = 3, -- #completions for getCompletions
-			},
+		auto_trigger = true,
+		debounce = 50,
+		keymap = {
+			accept = "<M-l>",
+			next = "<M-]>",
+			prev = "<M-[>",
+			dismiss = "<C-]>",
 		},
 	},
+	ft_disable = { "yaml", "json", "toml" },
+	--[[ server_opts_overrides = { ]]
+	--[[ 	trace = "verbose", ]]
+	--[[ 	settings = { ]]
+	--[[ 		advanced = { ]]
+	--[[ 			listCount = 10, -- #completions for panel ]]
+	--[[ 			inlineSuggestCount = 3, -- #completions for getCompletions ]]
+	--[[ 		}, ]]
+	--[[ 	}, ]]
+	--[[ }, ]]
 })
 
 copilot_cmp.setup()
