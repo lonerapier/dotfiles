@@ -1,5 +1,17 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+# Any items in the `env` entry below will be added as
+# environment variables. Some entries may override variables
+# set by alacritty itself.
+env:
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  TERM: xterm-256color
+
 # Import additional configuration files
 #
 # Imports are loaded in order, skipping all missing files, with the importing
@@ -11,18 +23,11 @@
 #import:
 #  - /path/to/alacritty.yml
 import:
-  - ./dracula.yml
-  # Any items in the `env` entry below will be added as
-  # environment variables. Some entries may override variables
-  # set by alacritty itself.
-# env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
-  # TERM: tmux-256color
+  # - ~/Projects/dotfiles/alacritty/dracula.yml
+  - ~/Projects/dotfiles/alacritty/catppuccin/catppuccin-latte.yml
+  # - ~/Projects/dotfiles/alacritty/catppuccin/catppuccin-mocha.yml
+  # - ~/Projects/dotfiles/alacritty/catppuccin/catppuccin-frappe.yml
+  # - ./catppuccin/catppuccin-macchiato.yml
 
 window:
   # Window dimensions (changes require restart)
@@ -46,8 +51,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    y: 2
     x: 8
+    y: 2
 
   # Spread additional padding evenly around the terminal content.
   # dynamic_padding: false
@@ -117,27 +122,26 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: JetBrainsMono Nerd Font
+    family: Hack Nerd Font Mono
     style: Regular
 
   # Bold font face
   bold:
-    family: JetBrainsMono Nerd Font
+    family: Hack Nerd Font Mono
     style: Bold
 
   # Italic font face
   italic:
-    family: JetBrainsMono Nerd Font
+    family: Hack Nerd Font Mono
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: JetBrainsMono Nerd Font
+    family: Hack Nerd Font Mono
     style: Bold Italic
 
   # Point size
-  size: 11
-  AppleFontSmoothing: True
+  size: 11.5
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
@@ -164,33 +168,41 @@ custom_cursor_colors: false
 draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-colors:
-  # Default colors
-  primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
-
-  # Normal colors
-  normal:
-    black: '#000000'
-    red: '#ff5555'
-    green: '#50fa7b'
-    yellow: '#f1fa8c'
-    blue: '#caa9fa'
-    magenta: '#ff79c6'
-    cyan: '#8be9fd'
-    white: '#bfbfbf'
-
-  # Bright colors
-  bright:
-    black: '#575b70'
-    red: '#ff6e67'
-    green: '#5af78e'
-    yellow: '#f4f99d'
-    blue: '#caa9fa'
-    magenta: '#ff92d0'
-    cyan: '#9aedfe'
-    white: '#e6e6e6'
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x1E1D2F'
+#     foreground: '0xD9E0EE'
+#
+#   cursor:
+#     text: '0x1E1D2F'
+#     cursor: '0xF5E0DC'
+#
+#   # Normal colors
+#   normal:
+#     black: '0x6E6C7E'
+#     red: '0xF28FAD'
+#     green: '0xABE9B3'
+#     yellow: '0xFAE3B0'
+#     blue: '0x96CDFB'
+#     magenta: '0xF5C2E7'
+#     cyan: '0x89DCEB'
+#     white: '0xD9E0EE'
+#
+#   # Bright colors
+#   bright:
+#     black: '0x988BA2'
+#     red: '0xF28FAD'
+#     green: '0xABE9B3'
+#     yellow: '0xFAE3B0'
+#     blue: '0x96CDFB'
+#     magenta: '0xF5C2E7'
+#     cyan: '0x89DCEB'
+#     white: '0xD9E0EE'
+#
+#   indexed_colors:
+#     - { index: 16, color: '0xF8BD96' }
+#     - { index: 17, color: '0xF5E0DC' }
 # Specifying a `duration` of `0` will disable the visual bell.
 visual_bell:
   animation: EaseOutQuint
@@ -258,9 +270,6 @@ selection:
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
 #working_directory: None
-# Send ESC (\x1b) before characters when alt is pressed.
-alt_send_esc: false
-
 mouse:
   # Click settings
   #
@@ -666,4 +675,4 @@ debug:
   #log_level: Warn
   # Print all received window events.
   #print_events: false
-theme: Dracula
+theme: Catppuccin

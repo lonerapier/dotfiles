@@ -73,6 +73,13 @@ return packer.startup(function(use)
 	use({ "sainnhe/everforest" })
 	use({ "rose-pine/neovim"})
 	use({ "ellisonleao/gruvbox.nvim" })
+	use {
+		"mcchrish/zenbones.nvim",
+		-- Optionally install Lush. Allows for more configuration or extending the colorscheme
+		-- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+		-- In Vim, compat mode is turned on as Lush only works in Neovim.
+		requires = "rktjmp/lush.nvim"
+	}
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -98,7 +105,7 @@ return packer.startup(function(use)
 	use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" }) -- lsp warnings virtual text
 	use({ "Saecki/crates.nvim" })
 	use({ "lvimuser/lsp-inlayhints.nvim" })
-	use({ "declancm/windex.nvim" })
+	--[[ use({ "declancm/windex.nvim" }) ]]
 	-- Code Outline
 	use({ "simrat39/symbols-outline.nvim" })
 
@@ -170,7 +177,6 @@ return packer.startup(function(use)
 	use({ "ray-x/go.nvim" })
 	use({ "ray-x/guihua.lua" })
 
-	use({ "ldelossa/nvim-ide" })
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

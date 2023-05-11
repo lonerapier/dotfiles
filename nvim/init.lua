@@ -36,5 +36,3 @@ require "user.leap"
 require "user.noice"
 require "user.lsp-inlayhints"
 require "user.hlslens"
---[[ require "user.ufo" ]]
---[[ require "user.ide" ]]

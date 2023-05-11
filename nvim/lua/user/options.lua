@@ -47,6 +47,7 @@ end
 vim.cmd "set encoding=utf-8"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd "set list"
+vim.cmd "set background=light"
 vim.cmd "set listchars=tab:▸-,extends:>,precedes:<,space:·"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work

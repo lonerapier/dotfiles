@@ -7,9 +7,10 @@ try
 	" colorscheme oxocarbon
 	" colorscheme kanagawa
 	" colorscheme catppuccin
-	colorscheme gruvbox
+	" colorscheme gruvbox
+	colorscheme rosebones
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
-  set background=dark
+  set background=light
 endtry
 ]]
