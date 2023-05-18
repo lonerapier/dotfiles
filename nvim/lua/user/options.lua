@@ -1,53 +1,28 @@
-local options = {
-  backup = false,                          -- creates a backup file
-  clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
-  cmdheight = 2,                           -- more space in the neovim command line for displaying messages
-  completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-  conceallevel = 0,                        -- so that `` is visible in markdown files
-  fileencoding = "utf-8",                  -- the encoding written to a file
-  hlsearch = true,                         -- highlight all matches on previous search pattern
-  ignorecase = true,                       -- ignore case in search patterns
-  mouse = "a",                             -- allow the mouse to be used in neovim
-  pumheight = 10,                          -- pop up menu height
-  showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
-  showtabline = 2,                         -- always show tabs
-  smartcase = true,                        -- smart case
-  smartindent = true,                      -- make indenting smarter again
-  splitbelow = true,                       -- force all horizontal splits to go below current window
-  splitright = true,                       -- force all vertical splits to go to the right of current window
-  swapfile = false,                        -- creates a swapfile
-  termguicolors = true,                    -- set term gui colors (most terminals support this)
-  timeoutlen = 100,                        -- time to wait for a mapped sequence to complete (in milliseconds)
-  undofile = true,                         -- enable persistent undo
-  updatetime = 300,                        -- faster completion (4000ms default)
-  writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-  --[[ expandtab = false,                        -- convert tabs to spaces ]]
-  --[[ shiftwidth = 4,                          -- the number of spaces inserted for each indentation ]]
-  --[[ tabstop = 4,                             -- insert 2 spaces for a tab ]]
-  cursorline = true,                       -- highlight the current line
-  number = true,                           -- set numbered lines
-  relativenumber = false,                  -- set relative numbered lines
-  numberwidth = 4,                         -- set number column width to 2 {default 4}
-  signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-  wrap = true,                            -- display lines as one long line
-  scrolloff = 8,                           -- is one of my fav
-  sidescrolloff = 8,
-  guifont = "monospace:h17",               -- the font used in graphical neovim applications
-  foldmethod = "expr",
-  foldexpr = "nvim_treesitter#foldexpr()",
-  foldlevel = 9,
+return {
+  opt = {
+    -- set to true or false etc.
+    relativenumber = true, -- sets vim.opt.relativenumber
+    spell = false, -- sets vim.opt.spell
+    signcolumn = "auto", -- sets vim.opt.signcolumn to auto
+    backup = false, -- creates a backup file
+    cmdheight = 2, -- more space in the neovim command line for displaying messages
+    conceallevel = 0, -- so that `` is visible in markdown files
+    hlsearch = true, -- highlight all matches on previous search pattern
+    showtabline = 2, -- always show tabs
+    swapfile = false, -- creates a swapfile
+    timeoutlen = 100, -- time to wait for a mapped sequence to complete (in milliseconds)
+    wrap = true, -- sets vim.opt.wrap
+    foldmethod = "expr",
+    foldexpr = "nvim_treesitter#foldexpr()",
+  },
+  g = {
+    mapleader = " ", -- sets vim.g.mapleader
+    autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+    cmp_enabled = true, -- enable completion at start
+    autopairs_enabled = true, -- enable autopairs at start
+    diagnostics_enabled = true, -- enable diagnostics at start
+    status_diagnostics_enabled = true, -- enable diagnostics in statusline
+    icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
+    ui_notifications_enabled = true, -- disable notifications when toggling UI elements
+  },
 }
-
-vim.opt.shortmess:append "c"
-
-for k, v in pairs(options) do
-  vim.opt[k] = v
-end
-
-vim.cmd "set encoding=utf-8"
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd "set list"
-vim.cmd "set background=light"
-vim.cmd "set listchars=tab:▸-,extends:>,precedes:<,space:·"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
