@@ -19,3 +19,5 @@ tmp/**/*
 /tags
 
 *.bak
+
+./alacritty/catppuccin/
