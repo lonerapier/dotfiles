@@ -184,7 +184,7 @@ export GOPATH=$HOME/go
 # export GOROOT="$(brew --prefix golang)/libexec"
 export GOROOT=/usr/local/go
 export GOPROXY=https://proxy.golang.org/
-export GOPRIVATE="bitbucket.org/dreamplug-backend"
+export GOPRIVATE=bitbucket.org/dreamplug-backend,github.com/dreamplug-tech/*
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # rg
@@ -207,4 +207,6 @@ export ALCHEMY_MAINNET="https://eth-mainnet.g.alchemy.com/v2/IE0LF2KrfBXV2CDv69N
 
 # clang
 export LD_LIBRARY_PATH="/Library/Developer/CommandLineTools/usr/lib/:$LD_LIBRARY_PATH"
+
+# mysql
 export PATH="$PATH:/usr/local/mysql/bin/"

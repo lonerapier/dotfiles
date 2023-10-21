@@ -5,8 +5,8 @@ alias d="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 
-alias ls="exa"
-alias ll="exa --long --header --git --icons"
+alias ls="eza"
+alias ll="eza --long --header --git --icons"
 alias tree="ll --tree --level=4 -a -I=.git --git-ignore"
 
 alias vim="nvim"
@@ -28,4 +28,3 @@ alias at="alacritty-themes"
 alias lforge="~/Projects/foundry/target/local/forge"
 alias lcast="~/Projects/foundry/target/local/cast"
 alias lanvil="~/Projects/foundry/target/local/anvil"
-
