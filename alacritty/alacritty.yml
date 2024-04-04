@@ -123,33 +123,38 @@ font:
   # Normal (roman) font face
   normal:
     # family: JetBrainsMono Nerd Font Mono
-    family: FiraCode Nerd Font
+    # family: FiraCode Nerd Font
     # family: CaskaydiaCove Nerd Font
-    style: Regular
+    family: MonaspaceNeon Nerd Font Mono
+    style: Medium
 
   # Bold font face
   bold:
     # family: JetBrainsMono Nerd Font Mono
-    family: FiraCode Nerd Font
+    # family: FiraCode Nerd Font
     # family: CaskaydiaCove Nerd Font
+    family: MonaspaceNeon Nerd Font Mono
     style: Bold
 
   # Italic font face
   italic:
     # family: JetBrainsMono Nerd Font Mono
-    family: FiraCode Nerd Font
+    # family: FiraCode Nerd Font
     # family: CaskaydiaCove Nerd Font
-    style: Italic
+    family: MonaspaceNeon Nerd Font Mono
+    style: Medium Italic
 
   # Bold italic font face
   bold_italic:
     # family: JetBrainsMono Nerd Font Mono
-    family: FiraCode Nerd Font
+    # family: FiraCode Nerd Font
     # family: CaskaydiaCove Nerd Font
+    family: MonaspaceNeon Nerd Font Mono
     style: Bold Italic
 
   # Point size
-  size: 11.5
+  # size: 11.5
+  size: 12
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
@@ -683,31 +688,36 @@ debug:
   #log_level: Warn
   # Print all received window events.
   #print_events: false
-theme: Alabaster
+theme: Oxide
 colors:
-  name: Alabaster
-  author: tonsky
+  # Default colors
   primary:
-    background: "#F7F7F7"
-    foreground: "#000000"
+    background: '#212121'
+    foreground: '#c0c5ce'
+    bright_foreground: '#f3f4f5'
+
   cursor:
-    text: "#448C27"
-    cursor: "#000000"
+    text: '#212121'
+    cursor: '#c0c5ce'
+
+  # Normal colors
   normal:
-    black: "#000000"
-    red: "#AA3731"
-    green: "#448C27"
-    yellow: "#CB9000"
-    blue: "#325CC0"
-    magenta: "#7A3E9D"
-    cyan: "#0083B2"
-    white: "#BBBBBB"
+    black: '#212121'
+    red: '#e57373'
+    green: '#a6bc69'
+    yellow: '#fac863'
+    blue: '#6699cc'
+    magenta: '#c594c5'
+    cyan: '#5fb3b3'
+    white: '#c0c5ce'
+
+  # Bright colors
   bright:
-    black: "#777777"
-    red: "#F05050"
-    green: "#60CB00"
-    yellow: "#FFBC5D"
-    blue: "#007ACC"
-    magenta: "#E64CE6"
-    cyan: "#00AACB"
-    white: "#FFFFFF"
+    black: '#5c5c5c'
+    red: '#e57373'
+    green: '#a6bc69'
+    yellow: '#fac863'
+    blue: '#6699cc'
+    magenta: '#c594c5'
+    cyan: '#5fb3b3'
+    white: '#f3f4f5'

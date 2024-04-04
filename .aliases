@@ -9,6 +9,8 @@ alias ls="eza"
 alias ll="eza --long --header --git --icons"
 alias tree="ll --tree --level=4 -a -I=.git --git-ignore"
 
+alias cat="bat"
+
 alias vim="nvim"
 alias zshrc="vim ~/.zshrc"
 alias zshrcs="source ~/.zshrc"

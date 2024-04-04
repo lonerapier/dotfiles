@@ -1,5 +1,5 @@
 local config = {
-	colorscheme = "astrolight",
+	colorscheme = "gruvbox",
 	diagnostics = {
 		virtual_lines = false,
 		virtual_text = false,
@@ -44,7 +44,7 @@ local config = {
 			--   require("lspconfig")["sumneko_lua"].setup(opts)
 			-- end,
 			rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end,
-			clangd = function(_, opts) require("clangd_extensions").setup { server = opts } end,
+			-- clangd = function(_, opts) require("clangd_extensions").setup { server = opts } end,
 		},
 		config = {
 			clangd = {
@@ -84,10 +84,6 @@ local config = {
 		require("nvim-treesitter.configs").setup {
 			highlight = {
 				enable = true,
-			},
-			rainbow = {
-				enable = true,
-				extended_mode = true,
 			},
 		}
 

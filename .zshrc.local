@@ -210,3 +210,6 @@ export LD_LIBRARY_PATH="/Library/Developer/CommandLineTools/usr/lib/:$LD_LIBRARY
 
 # mysql
 export PATH="$PATH:/usr/local/mysql/bin/"
+
+# fpath for cargo completion
+fpath+=~/.zfunc
