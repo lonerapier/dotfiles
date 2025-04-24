@@ -1,0 +1,9 @@
+layout {
+    pane name="btop" {
+        pane size="30%"
+        pane size=1 borderless=true {
+            plugin location="file:/Users/darkrai/projects/dotfiles/zellij/plugins/statusbar.wasm"
+        }
+        command "btop"
+    }
+}

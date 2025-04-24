@@ -1,0 +1,22 @@
+layout {
+	pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+    }
+    pane split_direction="vertical" {
+        // pane edit="src/main.rs"
+        // pane edit="Cargo.toml"
+		pane command="nvim" {}
+    	pane split_direction="horizontal" {
+			cargo { args "build"; }
+        	cargo { args "test"; }
+    		cargo { args "run --release"; }
+    	}
+	}
+	pane size=1 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+    pane_template name="cargo" {
+    	command "cargo"
+    	start_suspended true
+	}
+}

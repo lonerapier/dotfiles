@@ -20,5 +20,11 @@ tmp/**/*
 
 *.bak
 
-./alacritty/catppuccin/
+alacritty/alacritty-theme/
+alacritty/active.toml
+
+zellij/plugins/
+zellij/themes/
+
+bin/
 .fzf*
