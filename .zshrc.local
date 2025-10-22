@@ -90,7 +90,6 @@ plugins=(
   fast-syntax-highlighting
   vi-mode
   vscode
-  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -138,32 +137,10 @@ function time-zsh-plugins() {
   done
 }
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# java
-# export PATH="$HOME/.jenv/bin:$PATH"
-# eval "$(jenv init -)"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
+export GPG_TTY=$(tty)
 export PATH="/opt/homebrew/bin:$PATH"
 
 # nvm
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
@@ -175,17 +152,11 @@ export NVM_DIR="$HOME/.nvm"
 # broot
 source $HOME/.config/broot/launcher/bash/br
 
-# foundry
-export PATH="$PATH:$HOME/.foundry/bin"
-
 # golang
-export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
-# export GOROOT="$(brew --prefix golang)/libexec"
-export GOROOT=/usr/local/go
+export GOROOT="$(brew --prefix golang)/libexec"
 export GOPROXY=https://proxy.golang.org/
-export GOPRIVATE=bitbucket.org/dreamplug-backend,github.com/dreamplug-tech/*
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
 # rg
 if type rg &> /dev/null; then
@@ -197,13 +168,9 @@ fi
 eval "$(starship init zsh)"
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# Infura & Alchemy
-export INFURA_MAINNET="https://mainnet.infura.io/v3/33041fe1478a423f85c4e319924e63e3"
-export ALCHEMY_MAINNET="https://eth-mainnet.g.alchemy.com/v2/IE0LF2KrfBXV2CDv69NPcddAN4fsM1Em"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # clang
 export LD_LIBRARY_PATH="/Library/Developer/CommandLineTools/usr/lib/:$LD_LIBRARY_PATH"
@@ -216,3 +183,24 @@ fpath+=~/.zfunc
 
 # zellij
 # eval "$(zellij setup --generate-auto-start zsh)"
+
+# alacritty theme
+export ALACRITTY=true
+if [ "$ALACRITTY" = "true" ]
+then
+  theme() {
+    ln -sf $HOME/projects/dotfiles/alacritty/alacritty-theme/themes/$1.toml $HOME/projects/dotfiles/alacritty/active.toml
+  }
+  local ALACRITTY_THEME=$(defaults read -g AppleInterfaceStyle 2>/dev/null || echo "Light")
+  if [ "$ALACRITTY_THEME" = "Dark" ]
+  then
+    theme "github_dark"
+  else
+    theme "github_light"
+  fi
+fi
+
+# Created by `pipx` on 2024-05-14 09:16:00
+export PATH="$PATH:/Users/darkrai/.local/bin"
+
+export GEMINI_API_KEY="AIzaSyCGPfhlW7m4ep6BkRsDkrca9pDo4F6jkbc"

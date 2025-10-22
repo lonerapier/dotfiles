@@ -14,7 +14,7 @@ success_symbol = "[➜](bold green)"
 error_symbol = "[✖](bold red) "
 
 [cmd_duration]
-min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
+min_time = 10_000                    # Show command duration over 10,000 milliseconds (=10 sec)
 format = " took [$duration]($style)"
 
 [directory]
@@ -86,3 +86,6 @@ disabled = true
 [username]
 style_user = "bold dimmed blue"
 show_always = false
+
+[gcloud]
+disabled = true
